@@ -1,0 +1,2386 @@
+{
+  "name": "quotaService",
+  "apiList": [
+    {
+      "Name": "AssociateServiceQuotaTemplate",
+      "Desc": "Associates your quota request template with your organization. When a new AWS account is created in your organization, the quota increase requests in the template are automatically applied to the account. You can add a quota increase request for any adjustable quota to your template.",
+      "ResponseElements": "If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.",
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "AWSServiceAccessNotEnabledException",
+          "info": "The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "NoAvailableOrganizationException",
+          "info": "The AWS account making this call is not a member of an organization.",
+          "code": "400"
+        },
+        {
+          "name": "OrganizationNotInAllFeaturesModeException",
+          "info": "The organization that your AWS account belongs to is not in All Features mode.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TemplatesNotAvailableInRegionException",
+          "info": "The Service Quotas template is not available in this AWS Region.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "DeleteServiceQuotaIncreaseRequestFromTemplate",
+      "Desc": "Deletes the quota increase request for the specified quota from your quota request template.",
+      "RequestSyntax": "{\n   \"AwsRegion\": \"string\",\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 64.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the AWS Region for which the request was made.",
+          "name": "AwsRegion",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseElements": "If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.",
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "AWSServiceAccessNotEnabledException",
+          "info": "The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoAvailableOrganizationException",
+          "info": "The AWS account making this call is not a member of an organization.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TemplatesNotAvailableInRegionException",
+          "info": "The Service Quotas template is not available in this AWS Region.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "DisassociateServiceQuotaTemplate",
+      "Desc": "Disables your quota request template. After a template is disabled, the quota increase requests in the template are not applied to new AWS accounts in your organization. Disabling a quota request template does not apply its quota increase requests.",
+      "ResponseElements": "If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.",
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "AWSServiceAccessNotEnabledException",
+          "info": "The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "NoAvailableOrganizationException",
+          "info": "The AWS account making this call is not a member of an organization.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "ServiceQuotaTemplateNotInUseException",
+          "info": "The quota request template is not associated with your organization.",
+          "code": "400"
+        },
+        {
+          "name": "TemplatesNotAvailableInRegionException",
+          "info": "The Service Quotas template is not available in this AWS Region.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "GetAssociationForServiceQuotaTemplate",
+      "Desc": "Retrieves the status of the association for the quota request template.",
+      "ResponseSyntax": "{\n   \"ServiceQuotaTemplateAssociationStatus\": \"string\"\n}",
+      "ResponseElements": [
+        {
+          "constraints": "Valid Values: ASSOCIATED | DISASSOCIATED\n",
+          "desc": "The association status. If the status is ASSOCIATED, the quota increase requests in the template are automatically applied to new AWS accounts in your organization.",
+          "name": "ServiceQuotaTemplateAssociationStatus",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "AWSServiceAccessNotEnabledException",
+          "info": "The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "NoAvailableOrganizationException",
+          "info": "The AWS account making this call is not a member of an organization.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "ServiceQuotaTemplateNotInUseException",
+          "info": "The quota request template is not associated with your organization.",
+          "code": "400"
+        },
+        {
+          "name": "TemplatesNotAvailableInRegionException",
+          "info": "The Service Quotas template is not available in this AWS Region.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "GetAWSDefaultServiceQuota",
+      "Desc": "Retrieves the default value for the specified quota. The default value does not reflect any quota increases.",
+      "RequestSyntax": "{\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"Quota\": { \n      \"Adjustable\": boolean,\n      \"ErrorReason\": { \n         \"ErrorCode\": \"string\",\n         \"ErrorMessage\": \"string\"\n      },\n      \"GlobalQuota\": boolean,\n      \"Period\": { \n         \"PeriodUnit\": \"string\",\n         \"PeriodValue\": number\n      },\n      \"QuotaAppliedAtLevel\": \"string\",\n      \"QuotaArn\": \"string\",\n      \"QuotaCode\": \"string\",\n      \"QuotaContext\": { \n         \"ContextId\": \"string\",\n         \"ContextScope\": \"string\",\n         \"ContextScopeType\": \"string\"\n      },\n      \"QuotaName\": \"string\",\n      \"ServiceCode\": \"string\",\n      \"ServiceName\": \"string\",\n      \"Unit\": \"string\",\n      \"UsageMetric\": { \n         \"MetricDimensions\": { \n            \"string\" : \"string\" \n         },\n         \"MetricName\": \"string\",\n         \"MetricNamespace\": \"string\",\n         \"MetricStatisticRecommendation\": \"string\"\n      },\n      \"Value\": number\n   }\n}",
+      "ResponseElements": [
+        {
+          "desc": "Information about the quota.",
+          "name": "Quota",
+          "required": true,
+          "type": "object (ServiceQuota)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota.",
+          "fields": [
+            {
+              "desc": "Indicates whether the quota value can be increased.",
+              "name": "Adjustable",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The error code and error reason.",
+              "name": "ErrorReason",
+              "required": false,
+              "type": "ErrorReason object"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The period of time.",
+              "name": "Period",
+              "required": false,
+              "type": "QuotaPeriod object"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return applied quota values for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaAppliedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Information about the measurement.",
+              "name": "UsageMetric",
+              "required": false,
+              "type": "MetricInfo object"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The quota value.",
+              "name": "Value",
+              "required": false,
+              "type": "Double"
+            }
+          ],
+          "name": "ServiceQuota"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "GetRequestedServiceQuotaChange",
+      "Desc": "Retrieves information about the specified quota increase request.",
+      "RequestSyntax": "{\n   \"RequestId\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [0-9a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the ID of the quota increase request.",
+          "name": "RequestId",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"RequestedQuota\": { \n      \"CaseId\": \"string\",\n      \"Created\": number,\n      \"DesiredValue\": number,\n      \"GlobalQuota\": boolean,\n      \"Id\": \"string\",\n      \"LastUpdated\": number,\n      \"QuotaArn\": \"string\",\n      \"QuotaCode\": \"string\",\n      \"QuotaContext\": { \n         \"ContextId\": \"string\",\n         \"ContextScope\": \"string\",\n         \"ContextScopeType\": \"string\"\n      },\n      \"QuotaName\": \"string\",\n      \"QuotaRequestedAtLevel\": \"string\",\n      \"Requester\": \"string\",\n      \"ServiceCode\": \"string\",\n      \"ServiceName\": \"string\",\n      \"Status\": \"string\",\n      \"Unit\": \"string\"\n   }\n}",
+      "ResponseElements": [
+        {
+          "desc": "Information about the quota increase request.",
+          "name": "RequestedQuota",
+          "required": true,
+          "type": "object (RequestedServiceQuotaChange)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota increase request.",
+          "fields": [
+            {
+              "desc": "The case ID.",
+              "name": "CaseId",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time when the quota increase request was received and the case ID was created.",
+              "name": "Created",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The new, increased value for the quota.",
+              "name": "DesiredValue",
+              "required": false,
+              "type": "Double"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [0-9a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "The unique identifier.",
+              "name": "Id",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time of the most recent change.",
+              "name": "LastUpdated",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return quota requests for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaRequestedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The IAM identity of the requester.",
+              "name": "Requester",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "PENDING: The quota increase request is under review by AWS.\nCASE_OPENED: Service Quotas opened a support case to process the quota increase request. Follow-up on the support case for more information.\nAPPROVED: The quota increase request is approved.\nDENIED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nNOT APPROVED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nCASE_CLOSED: The support case associated with this quota increase request was closed. Check the support case correspondence for the outcome of your quota request.\nINVALID_REQUEST: Service Quotas couldn't process your resource-level quota increase request because the Amazon Resource Name (ARN) specified as part of the ContextId is invalid.\nValid Values: PENDING | CASE_OPENED | APPROVED | DENIED | CASE_CLOSED | NOT_APPROVED | INVALID_REQUEST\n",
+              "desc": "The state of the quota increase request.",
+              "name": "Status",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "RequestedServiceQuotaChange"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "GetServiceQuota",
+      "Desc": "Retrieves the applied quota value for the specified account-level or resource-level quota. For some quotas, only the default values are available. If the applied quota value is not available for a quota, the quota is not retrieved.",
+      "RequestSyntax": "{\n   \"ContextId\": \"string\",\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "desc": "Specifies the resource with an Amazon Resource Name (ARN).",
+          "name": "ContextId",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"Quota\": { \n      \"Adjustable\": boolean,\n      \"ErrorReason\": { \n         \"ErrorCode\": \"string\",\n         \"ErrorMessage\": \"string\"\n      },\n      \"GlobalQuota\": boolean,\n      \"Period\": { \n         \"PeriodUnit\": \"string\",\n         \"PeriodValue\": number\n      },\n      \"QuotaAppliedAtLevel\": \"string\",\n      \"QuotaArn\": \"string\",\n      \"QuotaCode\": \"string\",\n      \"QuotaContext\": { \n         \"ContextId\": \"string\",\n         \"ContextScope\": \"string\",\n         \"ContextScopeType\": \"string\"\n      },\n      \"QuotaName\": \"string\",\n      \"ServiceCode\": \"string\",\n      \"ServiceName\": \"string\",\n      \"Unit\": \"string\",\n      \"UsageMetric\": { \n         \"MetricDimensions\": { \n            \"string\" : \"string\" \n         },\n         \"MetricName\": \"string\",\n         \"MetricNamespace\": \"string\",\n         \"MetricStatisticRecommendation\": \"string\"\n      },\n      \"Value\": number\n   }\n}",
+      "ResponseElements": [
+        {
+          "desc": "Information about the quota.",
+          "name": "Quota",
+          "required": true,
+          "type": "object (ServiceQuota)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota.",
+          "fields": [
+            {
+              "desc": "Indicates whether the quota value can be increased.",
+              "name": "Adjustable",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The error code and error reason.",
+              "name": "ErrorReason",
+              "required": false,
+              "type": "ErrorReason object"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The period of time.",
+              "name": "Period",
+              "required": false,
+              "type": "QuotaPeriod object"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return applied quota values for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaAppliedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Information about the measurement.",
+              "name": "UsageMetric",
+              "required": false,
+              "type": "MetricInfo object"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The quota value.",
+              "name": "Value",
+              "required": false,
+              "type": "Double"
+            }
+          ],
+          "name": "ServiceQuota"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "GetServiceQuotaIncreaseRequestFromTemplate",
+      "Desc": "Retrieves information about the specified quota increase request in your quota request template.",
+      "RequestSyntax": "{\n   \"AwsRegion\": \"string\",\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 64.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the AWS Region for which you made the request.",
+          "name": "AwsRegion",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"ServiceQuotaIncreaseRequestInTemplate\": { \n      \"AwsRegion\": \"string\",\n      \"DesiredValue\": number,\n      \"GlobalQuota\": boolean,\n      \"QuotaCode\": \"string\",\n      \"QuotaName\": \"string\",\n      \"ServiceCode\": \"string\",\n      \"ServiceName\": \"string\",\n      \"Unit\": \"string\"\n   }\n}",
+      "ResponseElements": [
+        {
+          "desc": "Information about the quota increase request.",
+          "name": "ServiceQuotaIncreaseRequestInTemplate",
+          "required": true,
+          "type": "object (ServiceQuotaIncreaseRequestInTemplate)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota increase request.",
+          "fields": [
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 64.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "The AWS Region.",
+              "name": "AwsRegion",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The new, increased value of the quota.",
+              "name": "DesiredValue",
+              "required": false,
+              "type": "Double"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "ServiceQuotaIncreaseRequestInTemplate"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "AWSServiceAccessNotEnabledException",
+          "info": "The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoAvailableOrganizationException",
+          "info": "The AWS account making this call is not a member of an organization.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TemplatesNotAvailableInRegionException",
+          "info": "The Service Quotas template is not available in this AWS Region.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "ListAWSDefaultServiceQuotas",
+      "Desc": "Lists the default values for the quotas for the specified AWS service. A default value does not reflect any quota increases.",
+      "RequestSyntax": "{\n   \"MaxResults\": number,\n   \"NextToken\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "An API operation can return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results.\nValid Range: Minimum value of 1. Maximum value of 100.\n",
+          "desc": "Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the NextToken response element is present and has a value (is not null). Include that value as the NextToken request parameter in the next call to the operation to get the next part of the results.",
+          "name": "MaxResults",
+          "required": false,
+          "type": "Integer"
+        },
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "Specifies a value for receiving additional results after you receive a NextToken response in a previous request. A NextToken response indicates that more output is available. Set this parameter to the value of the previous call's NextToken response to indicate where the output should continue from.",
+          "name": "NextToken",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"NextToken\": \"string\",\n   \"Quotas\": [ \n      { \n         \"Adjustable\": boolean,\n         \"ErrorReason\": { \n            \"ErrorCode\": \"string\",\n            \"ErrorMessage\": \"string\"\n         },\n         \"GlobalQuota\": boolean,\n         \"Period\": { \n            \"PeriodUnit\": \"string\",\n            \"PeriodValue\": number\n         },\n         \"QuotaAppliedAtLevel\": \"string\",\n         \"QuotaArn\": \"string\",\n         \"QuotaCode\": \"string\",\n         \"QuotaContext\": { \n            \"ContextId\": \"string\",\n            \"ContextScope\": \"string\",\n            \"ContextScopeType\": \"string\"\n         },\n         \"QuotaName\": \"string\",\n         \"ServiceCode\": \"string\",\n         \"ServiceName\": \"string\",\n         \"Unit\": \"string\",\n         \"UsageMetric\": { \n            \"MetricDimensions\": { \n               \"string\" : \"string\" \n            },\n            \"MetricName\": \"string\",\n            \"MetricNamespace\": \"string\",\n            \"MetricStatisticRecommendation\": \"string\"\n         },\n         \"Value\": number\n      }\n   ]\n}",
+      "ResponseElements": [
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.",
+          "name": "NextToken",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "desc": "Information about the quotas.",
+          "name": "Quotas",
+          "required": true,
+          "type": "object (ServiceQuota)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota.",
+          "fields": [
+            {
+              "desc": "Indicates whether the quota value can be increased.",
+              "name": "Adjustable",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The error code and error reason.",
+              "name": "ErrorReason",
+              "required": false,
+              "type": "ErrorReason object"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The period of time.",
+              "name": "Period",
+              "required": false,
+              "type": "QuotaPeriod object"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return applied quota values for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaAppliedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Information about the measurement.",
+              "name": "UsageMetric",
+              "required": false,
+              "type": "MetricInfo object"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The quota value.",
+              "name": "Value",
+              "required": false,
+              "type": "Double"
+            }
+          ],
+          "name": "ServiceQuota"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "InvalidPaginationTokenException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "ListRequestedServiceQuotaChangeHistory",
+      "Desc": "Retrieves the quota increase requests for the specified AWS service. Filter responses to return quota requests at either the account level, resource level, or all levels. Responses include any open or closed requests within 90 days.",
+      "RequestSyntax": "{\n   \"MaxResults\": number,\n   \"NextToken\": \"string\",\n   \"QuotaRequestedAtLevel\": \"string\",\n   \"ServiceCode\": \"string\",\n   \"Status\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "An API operation can return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results.\nValid Range: Minimum value of 1. Maximum value of 100.\n",
+          "desc": "Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the NextToken response element is present and has a value (is not null). Include that value as the NextToken request parameter in the next call to the operation to get the next part of the results.",
+          "name": "MaxResults",
+          "required": false,
+          "type": "Integer"
+        },
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "Specifies a value for receiving additional results after you receive a NextToken response in a previous request. A NextToken response indicates that more output is available. Set this parameter to the value of the previous call's NextToken response to indicate where the output should continue from.",
+          "name": "NextToken",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+          "desc": "Filters the response to return quota requests for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+          "name": "QuotaRequestedAtLevel",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Valid Values: PENDING | CASE_OPENED | APPROVED | DENIED | CASE_CLOSED | NOT_APPROVED | INVALID_REQUEST\n",
+          "desc": "Specifies that you want to filter the results to only the requests with the matching status.",
+          "name": "Status",
+          "required": false,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"NextToken\": \"string\",\n   \"RequestedQuotas\": [ \n      { \n         \"CaseId\": \"string\",\n         \"Created\": number,\n         \"DesiredValue\": number,\n         \"GlobalQuota\": boolean,\n         \"Id\": \"string\",\n         \"LastUpdated\": number,\n         \"QuotaArn\": \"string\",\n         \"QuotaCode\": \"string\",\n         \"QuotaContext\": { \n            \"ContextId\": \"string\",\n            \"ContextScope\": \"string\",\n            \"ContextScopeType\": \"string\"\n         },\n         \"QuotaName\": \"string\",\n         \"QuotaRequestedAtLevel\": \"string\",\n         \"Requester\": \"string\",\n         \"ServiceCode\": \"string\",\n         \"ServiceName\": \"string\",\n         \"Status\": \"string\",\n         \"Unit\": \"string\"\n      }\n   ]\n}",
+      "ResponseElements": [
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.",
+          "name": "NextToken",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "desc": "Information about the quota increase requests.",
+          "name": "RequestedQuotas",
+          "required": true,
+          "type": "object (RequestedServiceQuotaChange)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota increase request.",
+          "fields": [
+            {
+              "desc": "The case ID.",
+              "name": "CaseId",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time when the quota increase request was received and the case ID was created.",
+              "name": "Created",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The new, increased value for the quota.",
+              "name": "DesiredValue",
+              "required": false,
+              "type": "Double"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [0-9a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "The unique identifier.",
+              "name": "Id",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time of the most recent change.",
+              "name": "LastUpdated",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return quota requests for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaRequestedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The IAM identity of the requester.",
+              "name": "Requester",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "PENDING: The quota increase request is under review by AWS.\nCASE_OPENED: Service Quotas opened a support case to process the quota increase request. Follow-up on the support case for more information.\nAPPROVED: The quota increase request is approved.\nDENIED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nNOT APPROVED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nCASE_CLOSED: The support case associated with this quota increase request was closed. Check the support case correspondence for the outcome of your quota request.\nINVALID_REQUEST: Service Quotas couldn't process your resource-level quota increase request because the Amazon Resource Name (ARN) specified as part of the ContextId is invalid.\nValid Values: PENDING | CASE_OPENED | APPROVED | DENIED | CASE_CLOSED | NOT_APPROVED | INVALID_REQUEST\n",
+              "desc": "The state of the quota increase request.",
+              "name": "Status",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "RequestedServiceQuotaChange"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "InvalidPaginationTokenException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "ListRequestedServiceQuotaChangeHistoryByQuota",
+      "Desc": "Retrieves the quota increase requests for the specified quota. Filter responses to return quota requests at either the account level, resource level, or all levels.",
+      "RequestSyntax": "{\n   \"MaxResults\": number,\n   \"NextToken\": \"string\",\n   \"QuotaCode\": \"string\",\n   \"QuotaRequestedAtLevel\": \"string\",\n   \"ServiceCode\": \"string\",\n   \"Status\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "An API operation can return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results.\nValid Range: Minimum value of 1. Maximum value of 100.\n",
+          "desc": "Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the NextToken response element is present and has a value (is not null). Include that value as the NextToken request parameter in the next call to the operation to get the next part of the results.",
+          "name": "MaxResults",
+          "required": false,
+          "type": "Integer"
+        },
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "Specifies a value for receiving additional results after you receive a NextToken response in a previous request. A NextToken response indicates that more output is available. Set this parameter to the value of the previous call's NextToken response to indicate where the output should continue from.",
+          "name": "NextToken",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+          "desc": "Filters the response to return quota requests for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+          "name": "QuotaRequestedAtLevel",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Valid Values: PENDING | CASE_OPENED | APPROVED | DENIED | CASE_CLOSED | NOT_APPROVED | INVALID_REQUEST\n",
+          "desc": "Specifies that you want to filter the results to only the requests with the matching status.",
+          "name": "Status",
+          "required": false,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"NextToken\": \"string\",\n   \"RequestedQuotas\": [ \n      { \n         \"CaseId\": \"string\",\n         \"Created\": number,\n         \"DesiredValue\": number,\n         \"GlobalQuota\": boolean,\n         \"Id\": \"string\",\n         \"LastUpdated\": number,\n         \"QuotaArn\": \"string\",\n         \"QuotaCode\": \"string\",\n         \"QuotaContext\": { \n            \"ContextId\": \"string\",\n            \"ContextScope\": \"string\",\n            \"ContextScopeType\": \"string\"\n         },\n         \"QuotaName\": \"string\",\n         \"QuotaRequestedAtLevel\": \"string\",\n         \"Requester\": \"string\",\n         \"ServiceCode\": \"string\",\n         \"ServiceName\": \"string\",\n         \"Status\": \"string\",\n         \"Unit\": \"string\"\n      }\n   ]\n}",
+      "ResponseElements": [
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.",
+          "name": "NextToken",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "desc": "Information about the quota increase requests.",
+          "name": "RequestedQuotas",
+          "required": true,
+          "type": "object (RequestedServiceQuotaChange)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota increase request.",
+          "fields": [
+            {
+              "desc": "The case ID.",
+              "name": "CaseId",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time when the quota increase request was received and the case ID was created.",
+              "name": "Created",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The new, increased value for the quota.",
+              "name": "DesiredValue",
+              "required": false,
+              "type": "Double"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [0-9a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "The unique identifier.",
+              "name": "Id",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time of the most recent change.",
+              "name": "LastUpdated",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return quota requests for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaRequestedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The IAM identity of the requester.",
+              "name": "Requester",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "PENDING: The quota increase request is under review by AWS.\nCASE_OPENED: Service Quotas opened a support case to process the quota increase request. Follow-up on the support case for more information.\nAPPROVED: The quota increase request is approved.\nDENIED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nNOT APPROVED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nCASE_CLOSED: The support case associated with this quota increase request was closed. Check the support case correspondence for the outcome of your quota request.\nINVALID_REQUEST: Service Quotas couldn't process your resource-level quota increase request because the Amazon Resource Name (ARN) specified as part of the ContextId is invalid.\nValid Values: PENDING | CASE_OPENED | APPROVED | DENIED | CASE_CLOSED | NOT_APPROVED | INVALID_REQUEST\n",
+              "desc": "The state of the quota increase request.",
+              "name": "Status",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "RequestedServiceQuotaChange"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "InvalidPaginationTokenException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "ListServiceQuotaIncreaseRequestsInTemplate",
+      "Desc": "Lists the quota increase requests in the specified quota request template.",
+      "RequestSyntax": "{\n   \"AwsRegion\": \"string\",\n   \"MaxResults\": number,\n   \"NextToken\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 64.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the AWS Region for which you made the request.",
+          "name": "AwsRegion",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "An API operation can return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results.\nValid Range: Minimum value of 1. Maximum value of 100.\n",
+          "desc": "Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the NextToken response element is present and has a value (is not null). Include that value as the NextToken request parameter in the next call to the operation to get the next part of the results.",
+          "name": "MaxResults",
+          "required": false,
+          "type": "Integer"
+        },
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "Specifies a value for receiving additional results after you receive a NextToken response in a previous request. A NextToken response indicates that more output is available. Set this parameter to the value of the previous call's NextToken response to indicate where the output should continue from.",
+          "name": "NextToken",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": false,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"NextToken\": \"string\",\n   \"ServiceQuotaIncreaseRequestInTemplateList\": [ \n      { \n         \"AwsRegion\": \"string\",\n         \"DesiredValue\": number,\n         \"GlobalQuota\": boolean,\n         \"QuotaCode\": \"string\",\n         \"QuotaName\": \"string\",\n         \"ServiceCode\": \"string\",\n         \"ServiceName\": \"string\",\n         \"Unit\": \"string\"\n      }\n   ]\n}",
+      "ResponseElements": [
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.",
+          "name": "NextToken",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "desc": "Information about the quota increase requests.",
+          "name": "ServiceQuotaIncreaseRequestInTemplateList",
+          "required": true,
+          "type": "object (ServiceQuotaIncreaseRequestInTemplate)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota increase request.",
+          "fields": [
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 64.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "The AWS Region.",
+              "name": "AwsRegion",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The new, increased value of the quota.",
+              "name": "DesiredValue",
+              "required": false,
+              "type": "Double"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "ServiceQuotaIncreaseRequestInTemplate"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "AWSServiceAccessNotEnabledException",
+          "info": "The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoAvailableOrganizationException",
+          "info": "The AWS account making this call is not a member of an organization.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TemplatesNotAvailableInRegionException",
+          "info": "The Service Quotas template is not available in this AWS Region.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "ListServiceQuotas",
+      "Desc": "Lists the applied quota values for the specified AWS service. For some quotas, only the default values are available. If the applied quota value is not available for a quota, the quota is not retrieved. Filter responses to return applied quota values at either the account level, resource level, or all levels.",
+      "RequestSyntax": "{\n   \"MaxResults\": number,\n   \"NextToken\": \"string\",\n   \"QuotaAppliedAtLevel\": \"string\",\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "An API operation can return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results.\nValid Range: Minimum value of 1. Maximum value of 100.\n",
+          "desc": "Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the NextToken response element is present and has a value (is not null). Include that value as the NextToken request parameter in the next call to the operation to get the next part of the results.",
+          "name": "MaxResults",
+          "required": false,
+          "type": "Integer"
+        },
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "Specifies a value for receiving additional results after you receive a NextToken response in a previous request. A NextToken response indicates that more output is available. Set this parameter to the value of the previous call's NextToken response to indicate where the output should continue from.",
+          "name": "NextToken",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+          "desc": "Filters the response to return applied quota values for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+          "name": "QuotaAppliedAtLevel",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"NextToken\": \"string\",\n   \"Quotas\": [ \n      { \n         \"Adjustable\": boolean,\n         \"ErrorReason\": { \n            \"ErrorCode\": \"string\",\n            \"ErrorMessage\": \"string\"\n         },\n         \"GlobalQuota\": boolean,\n         \"Period\": { \n            \"PeriodUnit\": \"string\",\n            \"PeriodValue\": number\n         },\n         \"QuotaAppliedAtLevel\": \"string\",\n         \"QuotaArn\": \"string\",\n         \"QuotaCode\": \"string\",\n         \"QuotaContext\": { \n            \"ContextId\": \"string\",\n            \"ContextScope\": \"string\",\n            \"ContextScopeType\": \"string\"\n         },\n         \"QuotaName\": \"string\",\n         \"ServiceCode\": \"string\",\n         \"ServiceName\": \"string\",\n         \"Unit\": \"string\",\n         \"UsageMetric\": { \n            \"MetricDimensions\": { \n               \"string\" : \"string\" \n            },\n            \"MetricName\": \"string\",\n            \"MetricNamespace\": \"string\",\n            \"MetricStatisticRecommendation\": \"string\"\n         },\n         \"Value\": number\n      }\n   ]\n}",
+      "ResponseElements": [
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.",
+          "name": "NextToken",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "desc": "Information about the quotas.",
+          "name": "Quotas",
+          "required": true,
+          "type": "object (ServiceQuota)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota.",
+          "fields": [
+            {
+              "desc": "Indicates whether the quota value can be increased.",
+              "name": "Adjustable",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The error code and error reason.",
+              "name": "ErrorReason",
+              "required": false,
+              "type": "ErrorReason object"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "desc": "The period of time.",
+              "name": "Period",
+              "required": false,
+              "type": "QuotaPeriod object"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return applied quota values for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaAppliedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Information about the measurement.",
+              "name": "UsageMetric",
+              "required": false,
+              "type": "MetricInfo object"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The quota value.",
+              "name": "Value",
+              "required": false,
+              "type": "Double"
+            }
+          ],
+          "name": "ServiceQuota"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "InvalidPaginationTokenException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "ListServices",
+      "Desc": "Lists the names and codes for the AWS services integrated with Service Quotas.",
+      "RequestSyntax": "{\n   \"MaxResults\": number,\n   \"NextToken\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "An API operation can return fewer results than the maximum even when there are more results available. You should check NextToken after every operation to ensure that you receive all of the results.\nValid Range: Minimum value of 1. Maximum value of 100.\n",
+          "desc": "Specifies the maximum number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value appropriate to the operation. If additional items exist beyond those included in the current response, the NextToken response element is present and has a value (is not null). Include that value as the NextToken request parameter in the next call to the operation to get the next part of the results.",
+          "name": "MaxResults",
+          "required": false,
+          "type": "Integer"
+        },
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "Specifies a value for receiving additional results after you receive a NextToken response in a previous request. A NextToken response indicates that more output is available. Set this parameter to the value of the previous call's NextToken response to indicate where the output should continue from.",
+          "name": "NextToken",
+          "required": false,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"NextToken\": \"string\",\n   \"Services\": [ \n      { \n         \"ServiceCode\": \"string\",\n         \"ServiceName\": \"string\"\n      }\n   ]\n}",
+      "ResponseElements": [
+        {
+          "constraints": "Length Constraints: Maximum length of 2048.\nPattern: ^[a-zA-Z0-9/+]*={0,2}$\n",
+          "desc": "If present, indicates that more output is available than is included in the current response. Use this value in the NextToken request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the NextToken response element comes back as null.",
+          "name": "NextToken",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "desc": "The list of the AWS service names and service codes.",
+          "name": "Services",
+          "required": true,
+          "type": "object (ServiceInfo)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about an AWS service.",
+          "fields": [
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "ServiceInfo"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "InvalidPaginationTokenException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "ListTagsForResource",
+      "Desc": "Returns a list of the tags assigned to the specified applied quota.",
+      "RequestSyntax": "{\n   \"ResourceARN\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 1011.\nPattern: arn:aws(-[\\w]+)*:*:.+:[0-9]{12}:.+\n",
+          "desc": "The Amazon Resource Name (ARN) for the applied quota for which you want to list tags. You can get this information by using the Service Quotas console, or by listing the quotas using the list-service-quotas AWS CLI command or the ListServiceQuotas AWS API operation.",
+          "name": "ResourceARN",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"Tags\": [ \n      { \n         \"Key\": \"string\",\n         \"Value\": \"string\"\n      }\n   ]\n}",
+      "ResponseElements": [
+        {
+          "desc": "A complex data type that contains zero or more tag elements.",
+          "name": "Tags",
+          "required": true,
+          "type": "object (Tag)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "A complex data type that contains a tag key and tag value.",
+          "fields": [
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: ^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$\n",
+              "desc": "A string that contains a tag key. The string length should be between 1 and 128 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.",
+              "name": "Key",
+              "required": true,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 0. Maximum length of 256.\nPattern: ^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$\n",
+              "desc": "A string that contains an optional tag value. The string length should be between 0 and 256 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.",
+              "name": "Value",
+              "required": true,
+              "type": "String"
+            }
+          ],
+          "name": "Tag"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "PutServiceQuotaIncreaseRequestIntoTemplate",
+      "Desc": "Adds a quota increase request to your quota request template.",
+      "RequestSyntax": "{\n   \"AwsRegion\": \"string\",\n   \"DesiredValue\": number,\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 64.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the AWS Region to which the template applies.",
+          "name": "AwsRegion",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+          "desc": "Specifies the new, increased value for the quota.",
+          "name": "DesiredValue",
+          "required": true,
+          "type": "Double"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"ServiceQuotaIncreaseRequestInTemplate\": { \n      \"AwsRegion\": \"string\",\n      \"DesiredValue\": number,\n      \"GlobalQuota\": boolean,\n      \"QuotaCode\": \"string\",\n      \"QuotaName\": \"string\",\n      \"ServiceCode\": \"string\",\n      \"ServiceName\": \"string\",\n      \"Unit\": \"string\"\n   }\n}",
+      "ResponseElements": [
+        {
+          "desc": "Information about the quota increase request.",
+          "name": "ServiceQuotaIncreaseRequestInTemplate",
+          "required": true,
+          "type": "object (ServiceQuotaIncreaseRequestInTemplate)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota increase request.",
+          "fields": [
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 64.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "The AWS Region.",
+              "name": "AwsRegion",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The new, increased value of the quota.",
+              "name": "DesiredValue",
+              "required": false,
+              "type": "Double"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "ServiceQuotaIncreaseRequestInTemplate"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "AWSServiceAccessNotEnabledException",
+          "info": "The action you attempted is not allowed unless Service Access with Service Quotas is enabled in your organization.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoAvailableOrganizationException",
+          "info": "The AWS account making this call is not a member of an organization.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "QuotaExceededException",
+          "info": "You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TemplatesNotAvailableInRegionException",
+          "info": "The Service Quotas template is not available in this AWS Region.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "RequestServiceQuotaIncrease",
+      "Desc": "Submits a quota increase request for the specified quota at the account or resource level.",
+      "RequestSyntax": "{\n   \"ContextId\": \"string\",\n   \"DesiredValue\": number,\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+      "RequestParameters": [
+        {
+          "desc": "Specifies the resource with an Amazon Resource Name (ARN).",
+          "name": "ContextId",
+          "required": false,
+          "type": "String"
+        },
+        {
+          "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+          "desc": "Specifies the new, increased value for the quota.",
+          "name": "DesiredValue",
+          "required": true,
+          "type": "Double"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+          "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+          "name": "QuotaCode",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+          "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+          "name": "ServiceCode",
+          "required": true,
+          "type": "String"
+        }
+      ],
+      "ResponseSyntax": "{\n   \"RequestedQuota\": { \n      \"CaseId\": \"string\",\n      \"Created\": number,\n      \"DesiredValue\": number,\n      \"GlobalQuota\": boolean,\n      \"Id\": \"string\",\n      \"LastUpdated\": number,\n      \"QuotaArn\": \"string\",\n      \"QuotaCode\": \"string\",\n      \"QuotaContext\": { \n         \"ContextId\": \"string\",\n         \"ContextScope\": \"string\",\n         \"ContextScopeType\": \"string\"\n      },\n      \"QuotaName\": \"string\",\n      \"QuotaRequestedAtLevel\": \"string\",\n      \"Requester\": \"string\",\n      \"ServiceCode\": \"string\",\n      \"ServiceName\": \"string\",\n      \"Status\": \"string\",\n      \"Unit\": \"string\"\n   }\n}",
+      "ResponseElements": [
+        {
+          "desc": "Information about the quota increase request.",
+          "name": "RequestedQuota",
+          "required": true,
+          "type": "object (RequestedServiceQuotaChange)"
+        }
+      ],
+      "Structs": [
+        {
+          "desc": "Information about a quota increase request.",
+          "fields": [
+            {
+              "desc": "The case ID.",
+              "name": "CaseId",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time when the quota increase request was received and the case ID was created.",
+              "name": "Created",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "constraints": "Valid Range: Minimum value of 0. Maximum value of 10000000000.\n",
+              "desc": "The new, increased value for the quota.",
+              "name": "DesiredValue",
+              "required": false,
+              "type": "Double"
+            },
+            {
+              "desc": "Indicates whether the quota is global.",
+              "name": "GlobalQuota",
+              "required": false,
+              "type": "Boolean"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [0-9a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "The unique identifier.",
+              "name": "Id",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The date and time of the most recent change.",
+              "name": "LastUpdated",
+              "required": false,
+              "type": "Timestamp"
+            },
+            {
+              "desc": "The Amazon Resource Name (ARN) of the quota.",
+              "name": "QuotaArn",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The context for this service quota.",
+              "name": "QuotaContext",
+              "required": false,
+              "type": "QuotaContextInfo object"
+            },
+            {
+              "desc": "Specifies the quota name.",
+              "name": "QuotaName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Valid Values: ACCOUNT | RESOURCE | ALL\n",
+              "desc": "Filters the response to return quota requests for the ACCOUNT, RESOURCE, or ALL levels. ACCOUNT is the default.",
+              "name": "QuotaRequestedAtLevel",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The IAM identity of the requester.",
+              "name": "Requester",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 63.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,63}\n",
+              "desc": "Specifies the service identifier. To find the service code value for an AWS service, use the ListServices operation.",
+              "name": "ServiceCode",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "Specifies the service name.",
+              "name": "ServiceName",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "constraints": "PENDING: The quota increase request is under review by AWS.\nCASE_OPENED: Service Quotas opened a support case to process the quota increase request. Follow-up on the support case for more information.\nAPPROVED: The quota increase request is approved.\nDENIED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nNOT APPROVED: The quota increase request can't be approved by Service Quotas. Contact AWS Support for more details.\nCASE_CLOSED: The support case associated with this quota increase request was closed. Check the support case correspondence for the outcome of your quota request.\nINVALID_REQUEST: Service Quotas couldn't process your resource-level quota increase request because the Amazon Resource Name (ARN) specified as part of the ContextId is invalid.\nValid Values: PENDING | CASE_OPENED | APPROVED | DENIED | CASE_CLOSED | NOT_APPROVED | INVALID_REQUEST\n",
+              "desc": "The state of the quota increase request.",
+              "name": "Status",
+              "required": false,
+              "type": "String"
+            },
+            {
+              "desc": "The unit of measurement.",
+              "name": "Unit",
+              "required": false,
+              "type": "String"
+            }
+          ],
+          "name": "RequestedServiceQuotaChange"
+        }
+      ],
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "DependencyAccessDeniedException",
+          "info": "You can't perform this action because a dependency does not have access.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "InvalidResourceStateException",
+          "info": "The resource is in an invalid state.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "QuotaExceededException",
+          "info": "You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or use Service Quotas to request a service quota increase.",
+          "code": "400"
+        },
+        {
+          "name": "ResourceAlreadyExistsException",
+          "info": "The specified resource already exists.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "TagResource",
+      "Desc": "Adds tags to the specified applied quota. You can include one or more tags to add to the quota.",
+      "RequestSyntax": "{\n   \"ResourceARN\": \"string\",\n   \"Tags\": [ \n      { \n         \"Key\": \"string\",\n         \"Value\": \"string\"\n      }\n   ]\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 1011.\nPattern: arn:aws(-[\\w]+)*:*:.+:[0-9]{12}:.+\n",
+          "desc": "The Amazon Resource Name (ARN) for the applied quota. You can get this information by using the Service Quotas console, or by listing the quotas using the list-service-quotas AWS CLI command or the ListServiceQuotas AWS API operation.",
+          "name": "ResourceARN",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Array Members: Minimum number of 1 item.\n",
+          "desc": "The tags that you want to add to the resource.",
+          "name": "Tags",
+          "required": true,
+          "type": "Array of Tag objects"
+        }
+      ],
+      "ResponseElements": "If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.",
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TagPolicyViolationException",
+          "info": "The specified tag is a reserved word and cannot be used.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        },
+        {
+          "name": "TooManyTagsException",
+          "info": "You've exceeded the number of tags allowed for a resource. For more information, see Tag restrictions in the Service Quotas User Guide.",
+          "code": "400"
+        }
+      ]
+    },
+    {
+      "Name": "UntagResource",
+      "Desc": "Removes tags from the specified applied quota. You can specify one or more tags to remove.",
+      "RequestSyntax": "{\n   \"ResourceARN\": \"string\",\n   \"TagKeys\": [ \"string\" ]\n}",
+      "RequestParameters": [
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 1011.\nPattern: arn:aws(-[\\w]+)*:*:.+:[0-9]{12}:.+\n",
+          "desc": "The Amazon Resource Name (ARN) for the applied quota that you want to untag. You can get this information by using the Service Quotas console, or by listing the quotas using the list-service-quotas AWS CLI command or the ListServiceQuotas AWS API operation.",
+          "name": "ResourceARN",
+          "required": true,
+          "type": "String"
+        },
+        {
+          "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: ^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$\n",
+          "desc": "The keys of the tags that you want to remove from the resource.",
+          "name": "TagKeys",
+          "required": true,
+          "type": "Array of strings"
+        }
+      ],
+      "ResponseElements": "If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.",
+      "Errors": [
+        {
+          "name": "AccessDeniedException",
+          "info": "You do not have sufficient permission to perform this action.",
+          "code": "400"
+        },
+        {
+          "name": "IllegalArgumentException",
+          "info": "Invalid input was provided.",
+          "code": "400"
+        },
+        {
+          "name": "NoSuchResourceException",
+          "info": "The specified resource does not exist.",
+          "code": "400"
+        },
+        {
+          "name": "ServiceException",
+          "info": "Something went wrong.",
+          "code": "500"
+        },
+        {
+          "name": "TooManyRequestsException",
+          "info": "Due to throttling, the request was denied. Slow down the rate of request calls, or request an increase for this quota.",
+          "code": "400"
+        }
+      ]
+    }
+  ]
+}

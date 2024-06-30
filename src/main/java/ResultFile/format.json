@@ -1,0 +1,103 @@
+{
+  "aws": [
+    {
+      "name": "quotaService",
+      "apiList": [
+        {
+          "Name": "GetAWSDefaultServiceQuota",
+          "Desc": "Retrieves the default value for the specified quota. The default value does not reflect any quota increases.",
+          "RequestSyntax": "{\n   \"QuotaCode\": \"string\",\n   \"ServiceCode\": \"string\"\n}",
+          "RequestParameters": [
+            {
+              "constraints": "Length Constraints: Minimum length of 1. Maximum length of 128.\nPattern: [a-zA-Z][a-zA-Z0-9-]{1,128}\n",
+              "desc": "Specifies the quota identifier. To find the quota code for a specific quota, use the ListServiceQuotas operation, and look for the QuotaCode response in the output for the quota you want.",
+              "name": "QuotaCode",
+              "required": true,
+              "type": "String"
+            }
+          ],
+          "ResponseSyntax": "{asdfadsf}",
+          "ResponseElements": [
+            {
+              "desc": "Information about the quota.",
+              "name": "Quota",
+              "required": true,
+              "type": "object (ServiceQuota)"
+            }
+          ],
+          "Structs": [
+            {
+              "desc": "Information about a quota.",
+              "fields": [
+                {
+                  "desc": "Indicates whether the quota value can be increased.",
+                  "name": "Adjustable",
+                  "required": false,
+                  "type": "Boolean"
+                }
+              ],
+              "name": "ServiceQuota"
+            }
+          ],
+          "Errors": [
+            {
+              "name": "AccessDeniedException",
+              "info": "You do not have sufficient permission to perform this action.",
+              "code": "400"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "gcp": [
+    {
+      "name": "CloudQuota",
+      "apiList": [
+        {
+          "Name": "api1",
+          "Desc": "desc",
+          "HttpPath": "path",
+          "PathParameters": [
+            {
+              "name": "param",
+              "type": "String",
+              "enum": [
+                {
+                  "name": "adsfasdf",
+                  "desc": "asdfasdg"
+                }
+              ],
+              "desc": "Required asdfasdf",
+              "example": "example:a sdfasdf"
+            }
+          ],
+          "QueryParameters": [
+            {
+              "name": "param",
+              "type": "String",
+              "enum": [
+                {
+                  "name": "adsfasdf",
+                  "desc": "asdfasdg"
+                }
+              ],
+              "desc": "Required asdfasdf",
+              "example": "example:a sdfasdf"
+            }
+          ],
+          "RequestBody": "body",
+          "ResponseBody": "body",
+          "IAMPermissions": [
+            "adfasdf",
+            "asdfasdf"
+          ],
+          "Structs": [
+            {
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

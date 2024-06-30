@@ -1,0 +1,34 @@
+{
+  "aws": [
+    {
+      "name":"quotaService",
+      "apiList": [
+        {
+          "name": "api1",
+          "desc": "asdfadf",
+          "requestSyntax": "{asldkfj}",
+          "requestParameters": [
+            {
+              "name": "parameter1",
+              "rule": "sdfadf"
+            }
+          ],
+          "responseSyntax": "{asdfadsf}",
+          "responseElements": [
+            {
+              "name": "elements1",
+              "type": "asdfjkasdlf"
+            }
+          ],
+          "errors": [
+            {
+              "name": "asdfadsf",
+              "info": "asdfasdf",
+              "code": "400"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

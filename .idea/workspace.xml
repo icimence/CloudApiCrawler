@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34deb221-0c98-4e65-8701-9201a76bfc04" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/AWSCrawler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/Handler/ErrorsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/Handler/Handler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/Handler/RequestParameterHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/Handler/ResponseElementHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/Handler/UnfitHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/Struct/DataType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/AWS/Struct/DataTypeField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/Azure/AzureCrawler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/Crawler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/GCPCrawler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/GCPUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Handler/BodyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Handler/Handler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Handler/HttpRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Handler/IAMHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Handler/ParameterHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Handler/UnfitHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Struct/EnumField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Struct/Field.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Struct/GcpEnumStruct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Struct/GcpObjectStruct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Crawler/GCP/Struct/GcpStruct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Decoder/Decoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Decoder/GcpDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Driver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ResultFile/format.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ResultFile/format_result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Util/ApiWebElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Util/Util.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="D:\maven" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="D:\maven\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2fdfRVhBsTbrIg17LTGgQF9Iz5c" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Crawler.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/LearnRepo/GenshinGachaBackend/JavaCrawler/src/main/java/ResultFile",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\LearnRepo\GenshinGachaBackend\JavaCrawler\src\main\java\ResultFile" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\LearnRepo\GenshinGachaBackend\JavaCrawler\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="JavaCrawler" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SeleniumInternalSettingsState">
+    <option name="lastUrl" value="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_GetAWSDefaultServiceQuota.html" />
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34deb221-0c98-4e65-8701-9201a76bfc04" name="Changes" comment="" />
+      <created>1714135869984</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714135869984</updated>
+      <workItem from="1714135871439" duration="160000" />
+      <workItem from="1714136040652" duration="1701000" />
+      <workItem from="1714137752426" duration="85000" />
+      <workItem from="1714137847511" duration="6330000" />
+      <workItem from="1714270264369" duration="2234000" />
+      <workItem from="1714286523642" duration="6398000" />
+      <workItem from="1714646470326" duration="628000" />
+      <workItem from="1715443223186" duration="811000" />
+      <workItem from="1715444052141" duration="3000" />
+      <workItem from="1717059128492" duration="633000" />
+      <workItem from="1717070187083" duration="5000" />
+      <workItem from="1717401728943" duration="9838000" />
+      <workItem from="1718010315046" duration="10717000" />
+      <workItem from="1718094119130" duration="2265000" />
+      <workItem from="1718118328981" duration="2816000" />
+      <workItem from="1718177932647" duration="5699000" />
+      <workItem from="1718204154112" duration="82000" />
+      <workItem from="1718204244311" duration="44000" />
+      <workItem from="1718204295718" duration="3918000" />
+      <workItem from="1718211267936" duration="291000" />
+      <workItem from="1718784748536" duration="14047000" />
+      <workItem from="1718871604037" duration="4338000" />
+      <workItem from="1719401177887" duration="2903000" />
+      <workItem from="1719477381695" duration="21778000" />
+      <workItem from="1719539217985" duration="34000" />
+      <workItem from="1719539733063" duration="4560000" />
+      <workItem from="1719575254844" duration="714000" />
+      <workItem from="1719597006740" duration="537000" />
+      <workItem from="1719721365512" duration="19677000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Crawler/GCP/GCPCrawler.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Crawler/AWS/AWSCrawler.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Crawler/AWS/AWSCrawler.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Crawler/AWS/Handler/RequestParameterHandler.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
