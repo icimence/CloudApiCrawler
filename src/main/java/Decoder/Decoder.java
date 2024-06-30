@@ -13,12 +13,9 @@ public abstract class Decoder {
         this.cloud = cloud;
     }
 
-    public String getApiDesc() {
-        return "";
-    }
-
-    private JSONObject getJsonFromFile() {
+    private String getResultFromJsonFile() {
         String filepath = "src/main/java/ResultFile/".concat(cloud).concat(".json");
+        String res="";
 
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             StringBuilder content = new StringBuilder();
@@ -28,11 +25,13 @@ public abstract class Decoder {
             }
             String json = content.toString();
             JSONObject jsonObject = JSONObject.parseObject(json);
-
+            res = DecodeJson(jsonObject);
         } catch (IOException e) {
             System.err.println("读取发生失误" + e.getMessage());
         }
-        return null;
+        return res;
     }
+
+    protected abstract String DecodeJson(JSONObject jsonObject);
 
 }

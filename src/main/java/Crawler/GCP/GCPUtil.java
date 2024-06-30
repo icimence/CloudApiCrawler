@@ -21,8 +21,8 @@ public class GCPUtil {
         param.put("type", type.getText());
 
         WebElement desc = parameter.findElement(By.xpath("./td[2]/p[2]"));
-        if (desc.getText().contains("enum") && !desc.findElements(By.xpath(".//a")).isEmpty()) {
-            handleEnumParamType(param, desc, driver);
+        if (type.getText().contains("enum") && !type.findElements(By.xpath(".//a")).isEmpty()) {
+            handleEnumParamType(param, type, driver);
         } else {
             param.put("desc", desc.getText());
         }
@@ -38,7 +38,9 @@ public class GCPUtil {
 
 
     private static void handleEnumParamType(JSONObject json, WebElement element, WebDriver driver) {
-        WebElement link = element.findElement(By.xpath(".//a"));
+        WebElement link = element.findElement(By.xpath(
+
+                ".//a"));
         String linkUrl = link.getAttribute("href");
         String originalWindow = Util.openInNewTab(driver, link);
 
