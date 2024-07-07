@@ -1,7 +1,7 @@
 package Crawler.GCP;
 
 import Crawler.GCP.Struct.EnumField;
-import Util.Util;
+import Utils.Util;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import org.openqa.selenium.By;

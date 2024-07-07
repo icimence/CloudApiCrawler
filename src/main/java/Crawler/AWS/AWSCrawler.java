@@ -4,18 +4,19 @@ import Crawler.AWS.Handler.*;
 import Crawler.AWS.Struct.DataType;
 import Crawler.AWS.Struct.DataTypeField;
 import Crawler.Crawler;
-import Util.Util;
+import Utils.Util;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AWSCrawler extends Crawler {
     public static final String NAME = "aws";
@@ -45,10 +46,8 @@ public class AWSCrawler extends Crawler {
 
 
     @Override
-    public void openApiReferencePage(WebDriver driver) {
-        driver.get("https://docs.aws.amazon.com/servicequotas/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
-
+    public void openApiReferencePage(WebDriver driver, String url) {
+        driver.get(url);
         String currentUrl = driver.getCurrentUrl();
         String baseUrl = Util.getBaseUrlFromCurrentUrl(currentUrl);
 
@@ -64,11 +63,17 @@ public class AWSCrawler extends Crawler {
         //todo:其他云产品可能没有直接的actions可以访问
         WebElement actionLink = driver.findElement(By.linkText("Actions"));
         actionLink.click();
-        WebElement apiListUl = driver.findElement(By.xpath("//p[contains(text(),'The following" +
-                " actions are supported:')]/following::div[1]//ul"));
+        Util.sleepRandomTime(1000, 500);
+        List<WebElement> apiListDiv = driver.findElements(By.xpath(".//div[@class='itemizedlist']"));
+        List<WebElement> apiList = apiListDiv.stream().flatMap(e -> e.findElements(By.xpath(".//li//a"))
+                .stream()).collect(Collectors.toList());
+
+        System.out.println("=======获取到API列表如下：=======");
+        apiList.forEach(e -> System.out.println(e.getText()));
+        System.out.println("==============================");
         //完成所有api李彪爬取，接下来完成dataTypes爬取
         getAllDataTypes(driver);
-        return apiListUl.findElements(By.tagName("a"));
+        return apiList;
     }
 
     @Override
@@ -126,8 +131,8 @@ public class AWSCrawler extends Crawler {
     protected void saveJsonFile(String json) {
         String filePath = "src/main/java/ResultFile/aws.json";
         File file = new File(filePath);
-        try{
-            if (!file.exists()){
+        try {
+            if (!file.exists()) {
                 file.createNewFile();
             }
 
@@ -136,7 +141,7 @@ public class AWSCrawler extends Crawler {
 
             fw.close();
             System.out.println("json写入完成");
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -144,8 +149,12 @@ public class AWSCrawler extends Crawler {
     private void getAllDataTypes(WebDriver driver) {
         WebElement dataTypeLink = driver.findElement(By.linkText("Data Types"));
         String originalWindow = Util.openInNewTab(driver, dataTypeLink);
-        WebElement linkList = driver.findElement(By.xpath(".//div[@class='itemizedlist']"));
-        List<WebElement> links = linkList.findElements(By.xpath(".//li//a"));
+        List<WebElement> linkLists = driver.findElements(By.xpath(".//div[@class='itemizedlist']"));
+        List<WebElement> links = linkLists.stream().flatMap(e -> e.findElements(By.xpath(".//li//a"))
+                .stream()).collect(Collectors.toList());
+        System.out.println("=======获取到DataType列表如下：=======");
+        links.forEach(e -> System.out.println(e.getText()));
+        System.out.println("===================================");
         for (WebElement link : links) {
             String tempWindow = Util.openInNewTab(driver, link);
 

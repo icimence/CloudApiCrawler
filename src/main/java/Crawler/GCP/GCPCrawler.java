@@ -3,6 +3,7 @@ package Crawler.GCP;
 import Crawler.Crawler;
 import Crawler.GCP.Handler.*;
 import Crawler.GCP.Struct.GcpStruct;
+import Utils.Util;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import org.openqa.selenium.By;
@@ -38,7 +39,7 @@ public class GCPCrawler extends Crawler {
 
     private final Map<String, Handler> handlerMap;
 
-//todo:搞个Map<String,GCPStruct>的缓存，不用重复查询，需要传入BodyHandler处理
+    //todo:搞个Map<String,GCPStruct>的缓存，不用重复查询，需要传入BodyHandler处理
     public GCPCrawler(JSONObject json) {
         super(json);
         bodyStructs = new HashSet<>();
@@ -53,13 +54,11 @@ public class GCPCrawler extends Crawler {
 
 
     @Override
-    protected void openApiReferencePage(WebDriver driver) {
-        driver.get("https://cloud.google.com/docs/quotas");
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
-
+    protected void openApiReferencePage(WebDriver driver, String url) {
+        driver.get(url);
         WebElement apiReferenceLink = driver.findElement(By.linkText("REST API"));
         apiReferenceLink.click();
-
+        Util.sleepRandomTime(1000, 500);
     }
 
     @Override
@@ -116,8 +115,8 @@ public class GCPCrawler extends Crawler {
     protected void saveJsonFile(String json) {
         String filePath = "src/main/java/ResultFile/gcp.json";
         File file = new File(filePath);
-        try{
-            if (!file.exists()){
+        try {
+            if (!file.exists()) {
                 file.createNewFile();
             }
 
@@ -126,7 +125,7 @@ public class GCPCrawler extends Crawler {
 
             fw.close();
             System.out.println("json写入完成");
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

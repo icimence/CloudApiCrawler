@@ -4,7 +4,7 @@ import Crawler.GCP.GCPUtil;
 import Crawler.GCP.Struct.Field;
 import Crawler.GCP.Struct.GcpEnumStruct;
 import Crawler.GCP.Struct.GcpStruct;
-import Util.Util;
+import Utils.Util;
 import com.alibaba.fastjson2.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
